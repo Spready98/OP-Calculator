@@ -1,0 +1,70 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: darkolivegreen;
+    max-width: 150px;
+
+    
+}
+
+#calculator {
+    display: flex;
+    width: 150px;
+    flex-direction: column;
+    border: 1px solid black;
+   
+}
+.output {
+    display: flex;
+    width: 150px;
+    justify-content: center;
+    border: 1px solid black;
+    
+}
+
+.calculator-buttons {
+    display: flex;
+    justify-content: center;
+    
+}
+.display {
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    
+    
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    
+}
+.top-digits {
+    display: flex;
+    gap: 18px;
+    margin: 8px;
+    justify-content: center;
+}
+
+.mid-digits {
+    display: flex;
+    gap: 17px;
+    margin: 8px;
+    justify-content: center;
+}
+
+.bot-digits {
+    display: flex;
+    gap: 17px;
+    margin: 8px;
+    justify-content: center;
+}
+
+.bot-row {
+    display: flex;
+    gap: 12px;
+    margin: 8px;
+    justify-content: center;
+    
+}
