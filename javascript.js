@@ -1,21 +1,38 @@
 const container = document.querySelector("#container");
 // const numbers = document.querySelectorAll(".num");
-const operators = document.querySelectorAll(".ops");
+// const operators = document.querySelectorAll(".ops");
 const equals = document.getElementById("equal");
 const clears = document.getElementById("clear");
 const display = document.querySelector(".display");
 
 let displayNum = "";
 let displayOps = "";
+let firstNum = "";
+let secondNum = "";
 
 document.querySelectorAll(".num").forEach(item => {
     item.addEventListener('click', event => {
 
         display.textContent += item.textContent;
         
-        displayNum = display.textContent;
+        if (firstNum === "") {
+            displayNum = display.textContent;
+        } else {
+            secondNum += item.textContent;
+        }
+        
         
     })
+});
+
+equals.addEventListener("click", function() {
+
+    let x = Number(firstNum);
+    let y = Number(secondNum);
+
+    let result = operate(displayOps, x, y);
+
+    display.textContent = result;
 });
 
 clears.addEventListener("click", function() {
@@ -28,9 +45,10 @@ clears.addEventListener("click", function() {
 document.querySelectorAll(".ops").forEach(item => {
     item.addEventListener("click", event => {
 
+        firstNum = displayNum;
         display.textContent += (" " + item.textContent + " ");
         displayOps = item.textContent;
-        displayNum = display.textContent;
+        displayNum = "";
 
     })
 });
@@ -40,7 +58,7 @@ function add (x, y) {
 }
 
 function subtract (x, y) {
-    return x- y;
+    return x - y;
 }
 
 function multiply (x, y) {
