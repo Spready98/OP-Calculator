@@ -1,11 +1,8 @@
 const container = document.querySelector("#container");
-// const numbers = document.querySelectorAll(".num");
-// const operators = document.querySelectorAll(".ops");
 const equals = document.getElementById("equal");
 const clears = document.getElementById("clear");
 const display = document.querySelector(".display");
 
-let displayNum = "";
 let displayOps = "";
 let firstNum = "";
 let secondNum = "";
@@ -15,8 +12,9 @@ document.querySelectorAll(".num").forEach(item => {
 
         display.textContent += item.textContent;
         
-        if (firstNum === "") {
-            displayNum = display.textContent;
+        if (displayOps === "") {
+            firstNum = display.textContent;
+            
         } else {
             secondNum += item.textContent;
         }
@@ -27,28 +25,38 @@ document.querySelectorAll(".num").forEach(item => {
 
 equals.addEventListener("click", function() {
 
-    let x = Number(firstNum);
-    let y = Number(secondNum);
 
-    let result = operate(displayOps, x, y);
+    let result = operate(displayOps, Number(firstNum), Number(secondNum));
 
     display.textContent = result;
+    firstNum = result;
+   
+    displayOps = "";
+    secondNum = "";
 });
 
 clears.addEventListener("click", function() {
 
-    displayNum = "";
+
     displayOps = "";
     display.textContent = "";
+    firstNum = "";
+    secondNum = "";
 });
 
 document.querySelectorAll(".ops").forEach(item => {
     item.addEventListener("click", event => {
-
-        firstNum = displayNum;
+        
         display.textContent += (" " + item.textContent + " ");
-        displayOps = item.textContent;
-        displayNum = "";
+
+        if (displayOps === "") {
+            displayOps = item.textContent;
+            
+        } else {
+            firstNum = operate(displayOps, Number(firstNum), Number(secondNum));
+            secondNum = "";
+            displayOps = item.textContent
+        }
 
     })
 });
@@ -67,6 +75,10 @@ function multiply (x, y) {
 }
 
 function divide (x, y) {
+    if (y === 0) {
+        return "dividing by 0? really?";
+        
+    }
     return x / y;
 }
 
