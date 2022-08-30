@@ -3,6 +3,7 @@ const equals = document.getElementById("equal");
 const clears = document.getElementById("clear");
 const display = document.querySelector(".display");
 const decimal = document.getElementById("decimal");
+const backspace = document.getElementById("delete");
 
 let displayOps = "";
 let firstNum = "";
@@ -23,6 +24,12 @@ document.querySelectorAll(".num").forEach(item => {
         
         
     })
+});
+
+backspace.addEventListener("click", function() {
+
+    let displayLength = display.textContent.length - 1;
+    display.textContent = display.textContent.substring(0, displayLength);
 });
 
 decimal.addEventListener("click", function(){
