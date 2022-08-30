@@ -26,10 +26,74 @@ document.querySelectorAll(".num").forEach(item => {
     })
 });
 
+window.addEventListener("keydown", function(e) {
+
+    
+    if (!isNaN(e.key)) {
+        display.textContent += e.key;
+
+        if (displayOps === "") {
+            firstNum = display.textContent;
+            
+        } else {
+            secondNum += e.key;
+        }
+    } else if (e.key === '+' || e.key === '-' || e.key === '*' || e.key === '/') {
+
+        display.textContent += (" " + e.key + " ");
+        isDecimal = false;
+        if (displayOps === "") {
+            displayOps = e.key;
+            
+        } else {
+            firstNum = Math.round(operate(displayOps, Number(firstNum), Number(secondNum)) * 100 ) / 100;
+            secondNum = "";
+            displayOps = e.key;
+            display.textContent = firstNum + " " + e.key + " ";
+        }
+    } else if (e.key === '.') {
+        if (isDecimal) {
+            return;
+        } else {
+            display.textContent += ".";
+            isDecimal = true;
+        }
+    } else if (e.key === 'Enter') {
+        let result = Math.round(operate(displayOps, Number(firstNum), Number(secondNum)) * 100 ) / 100;
+    
+        display.textContent = result;
+        firstNum = result;
+   
+        displayOps = "";
+        secondNum = "";
+    } else if (e.key === 'Backspace') {
+        let displayLength = display.textContent.length - 1;
+        display.textContent = display.textContent.substring(0, displayLength);
+
+        if (displayOps === "") {
+            let firstNumLength = firstNum.length - 1;
+            firstNum = firstNum.substring(0, firstNumLength);
+        } else {
+            let secNumLength = secondNum.length - 1;
+            secondNum = secondNum.substring(0, secNumLength);
+    }
+}
+
+
+});
+
 backspace.addEventListener("click", function() {
 
     let displayLength = display.textContent.length - 1;
     display.textContent = display.textContent.substring(0, displayLength);
+
+    if (displayOps === "") {
+        let firstNumLength = firstNum.length - 1;
+        firstNum = firstNum.substring(0, firstNumLength);
+    } else {
+        let secNumLength = secondNum.length - 1;
+        secondNum = secondNum.substring(0, secNumLength);
+    }
 });
 
 decimal.addEventListener("click", function(){
