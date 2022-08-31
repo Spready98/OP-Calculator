@@ -23,11 +23,18 @@
     width: 60px;
     height: 60px;
     font-size: larger;
+    transition: font-size 0.3s;
 }
 
+.num:hover, .num:focus,
+.ops:hover, .ops:focus {
+    font-size: x-large;
+    text-shadow: 0 0 3px #FF0000;
+}
 .ops {
     background-color: aqua;
 }
+
 
 .num {
     background-color: lightsalmon;
@@ -38,12 +45,20 @@
     height: 60px;
     font-size: larger;
     background-color: aqua;
+    transition: font-size 0.3s;
 }
 #delete, #clear {
     width: 80px;
     height: 40px;
     font-size: larger;
     background-color: lightgoldenrodyellow;
+    transition: font-size 0.3s;
+}
+
+#equal:hover, #equal:focus, #decimal:hover, #decimal:focus,
+#delete:hover, #delete:focus, #clear:hover, #clear:focus {
+    font-size: x-large;
+    text-shadow: 0 0 3px #FF0000;
 }
 
 .top-row {
