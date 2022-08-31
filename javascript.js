@@ -100,9 +100,13 @@ decimal.addEventListener("click", function(){
 
     if (isDecimal) {
         return;
+    } else if (secondNum === "") {
+        display.textContent += ".";
+        isDecimal = true;
     } else {
         display.textContent += ".";
         isDecimal = true;
+        secondNum += ".";
     }
 });
 
