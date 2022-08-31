@@ -1,5 +1,7 @@
 # OP-Calculator
 
+[Live demo!](https://spready98.github.io/OP-Calculator/)
+
 A calculator for the Odin-Project!
 - HTML
 - CSS
