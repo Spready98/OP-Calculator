@@ -1,24 +1,49 @@
 #container {
     display: flex;
     flex-direction: column;
-    background-color: darkolivegreen;
+    background-color: lightgreen;
     max-width: 450px;
-
+    width: inherit;
     
 }
 
+.output {
+    width: 325px;
+    height: 60px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-right: 8px;
+    background-color: lightgrey;
+    font-size: large;
+}
+
 .num, .ops {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
+    font-size: larger;
+}
+
+.ops {
+    background-color: aqua;
+}
+
+.num {
+    background-color: lightsalmon;
 }
 
 #equal, #decimal {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
+    font-size: larger;
+    background-color: aqua;
 }
 #delete, #clear {
     width: 80px;
     height: 40px;
+    font-size: larger;
+    background-color: lightgoldenrodyellow;
 }
 
 .top-row {
@@ -32,6 +57,7 @@
     max-width: 450px;
     flex-direction: column;
     border: 1px solid black;
+    width: 350px;
    
 }
 
@@ -39,26 +65,24 @@
 .calculator-buttons {
     display: flex;
     justify-content: center;
-    
+    width: inherit;
 }
 .display {
-    display: flex;
-    justify-content: flex-end;
-    height: 40px;
-    align-items: flex-end;
-    border: 8px solid darkolivegreen;
-    padding-right: 8px;
+    
+    border: 8px solid lightgreen;
+    
     
 }
 
 body {
     display: flex;
     justify-content: center;
+    margin-top: 200px;
     
 }
 .top-digits, .mid-digits, .bot-digits, .bot-row {
     display: flex;
     gap: 17px;
     margin: 8px;
-    justify-content: center;
+    justify-content: space-around;
 }

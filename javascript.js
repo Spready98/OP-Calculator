@@ -1,7 +1,7 @@
 const container = document.querySelector("#container");
 const equals = document.getElementById("equal");
 const clears = document.getElementById("clear");
-const display = document.querySelector(".display");
+const display = document.querySelector(".output");
 const decimal = document.getElementById("decimal");
 const backspace = document.getElementById("delete");
 
